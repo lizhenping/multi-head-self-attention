@@ -1,0 +1,76 @@
+# 默认配置文件
+# 文本相似度模型训练配置
+
+# 模型配置
+model:
+  embed_dim: 256              # 嵌入维度
+  num_heads: 8                # 注意力头数
+  num_layers: 2               # 编码器层数
+  ff_dim: null                # 前馈网络维度 (null 表示 4*embed_dim)
+  dropout: 0.1                # Dropout 概率
+  pooling_strategy: mean      # 池化策略: mean, max, cls
+  vocab_size: 50000           # 词汇表大小
+  max_vocab_size: null        # 最大词汇表大小限制
+  min_freq: 2                 # 最小词频
+  max_seq_len: 200           # 最大序列长度
+  use_pretrained_embeddings: false  # 是否使用预训练嵌入
+  embeddings_path: null       # 预训练嵌入文件路径
+  embeddings_name: glove.6B.100d    # GloVe 嵌入名称
+
+# 训练配置
+training:
+  batch_size: 32              # 批次大小
+  learning_rate: 0.0001       # 学习率
+  num_epochs: 50              # 训练轮数
+  gradient_clip: 1.0          # 梯度裁剪值
+  weight_decay: 0.00001       # 权重衰减
+  optimizer: adam             # 优化器: adam, adamw, sgd
+  adam_betas: [0.9, 0.999]    # Adam beta 参数
+  adam_eps: 0.00000001        # Adam epsilon
+  scheduler: cosine           # 学习率调度器: cosine, linear, constant
+  warmup_steps: 1000          # 预热步数
+  warmup_ratio: 0.1           # 预热比例
+  early_stopping: true        # 是否使用早停
+  patience: 10                # 早停耐心值
+  min_delta: 0.0001           # 最小改进阈值
+  save_steps: 500             # 保存检查点的步数间隔
+  save_total_limit: 3         # 保存的最大检查点数
+  save_best_only: true        # 仅保存最佳模型
+  eval_steps: 100             # 验证步数间隔
+  eval_strategy: steps        # 验证策略: steps, epoch
+  device: cuda                # 设备: cuda, cpu
+  num_workers: 4              # 数据加载器工作进程数
+  pin_memory: true            # 是否固定内存
+  fp16: false                 # 是否使用 FP16
+  fp16_opt_level: O1          # FP16 优化级别
+
+# 数据配置
+data:
+  train_path: tutorial/mha-lstm/data/sts-kaggle-train.csv  # 训练数据路径
+  val_path: tutorial/mha-lstm/data/sts-kaggle-test.csv     # 验证数据路径
+  test_path: null             # 测试数据路径
+  tokenizer: basic_english    # 分词器类型
+  normalize_scores: true      # 是否归一化分数
+  score_range: [0, 5]         # 分数范围
+  cache_dir: cache            # 缓存目录
+  augment_data: false         # 是否进行数据增强
+  augment_prob: 0.1           # 数据增强概率
+
+# 日志配置
+logging:
+  log_level: INFO             # 日志级别
+  log_file: null              # 日志文件路径
+  use_tensorboard: true       # 是否使用 TensorBoard
+  tensorboard_dir: runs       # TensorBoard 目录
+  use_wandb: false            # 是否使用 W&B
+  wandb_project: text-similarity  # W&B 项目名
+  wandb_entity: null          # W&B 实体名
+  experiment_name: null       # 实验名称
+  tags: []                    # 实验标签
+
+# 输出配置
+output_dir: output            # 输出目录
+checkpoint_dir: checkpoints   # 检查点目录
+seed: 42                      # 随机种子
+config_name: default          # 配置名称
+config_file: null             # 配置文件路径
