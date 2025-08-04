@@ -394,15 +394,7 @@ for lr in 0.0001 0.0005 0.001; do
 done
 ```
 
-## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit issues or pull requests.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ### Development Guidelines
 
@@ -425,7 +417,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or suggestions, please:
 - Submit an issue on GitHub
-- Email: [your-email@example.com]
+- Email: [lizhenping18@mails.ucas.ac.cn]
 
 ## 📚 Citation
 
@@ -434,12 +426,13 @@ If you use this code in your research, please cite:
 ```bibtex
 @software{text_similarity_mha,
   title = {Text Similarity Model Based on Multi-Head Attention},
-  author = {Your Name},
+  author = {Zhenping Li},
   year = {2024},
-  url = {https://github.com/yourusername/yourrepository}
+  url = {https://github.com/lizhenping/multi-head-self-attention}
 }
 ```
 
 ---
 
 **Note**: This project is for educational and research purposes. For commercial use, please ensure compliance with all relevant licenses.
+
